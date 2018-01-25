@@ -55,6 +55,8 @@ class Header extends Component {
 
   _logout = () =>{
     this.props.clear()
+    window.localStorage.clear()
+    browserHistory.replace('/')
     this.props.updateUserSettings({})
     var snack = {
       message: 'Logout Successful.'
