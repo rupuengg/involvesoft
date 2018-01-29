@@ -12,6 +12,7 @@ import { updateUserSettings } from '../../userSetting.js'
 import { getAuthenticationURL } from '../../utils/httpRequest'
 import { connect } from 'react-redux'
 import { updateSnack } from '../../snackbar'
+import { changePanelContent } from '../../Global/NavPanel/store/navPanelStore.js'
 import {
   authActions,
   LOGGED_IN_STATUS,
@@ -61,7 +62,7 @@ class Login extends Component {
   */
   static defaultProps = {
     primaryHeader: 'LOGIN',
-    onSuccess: () => {browserHistory.replace('/all-communities')}
+    onSuccess: () => { }
 
   }
   /**
@@ -209,4 +210,4 @@ class Login extends Component {
   }
 }
 export default connect(mapStateToProps, {
-  ...authActions, updateUserSettings, updateSnack })(Login)
+  ...authActions, updateUserSettings, updateSnack, changePanelContent })(Login)

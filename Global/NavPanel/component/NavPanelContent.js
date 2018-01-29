@@ -37,15 +37,7 @@ class NavPanelContent extends Component {
   /**
     * React lifecycle method
   */
-  shouldComponentUpdate (nextProps) {
-      
-     if(!nextProps.auth.loggedIn){
-      browserHistory.replace('/')
 
-       return false
-      }
-      return true
-  }
   handleCellSelection (e) {
     this.props.onClick(this.props.id)
   }
@@ -61,9 +53,11 @@ class NavPanelContent extends Component {
           <ListItem primaryText={this.props.label}
             onClick={this.handleCellSelection}
             initiallyOpen
-            disabled
+            disabled={true}
+            autoGenerateNestedIndicator={true}
+            rightIconButton={null}
             style={(this.props.activeId === this.props.id) ? styles.activeLabelStyle : styles.inActiveLabelStyle}
-            containerElement={<Link to={this.props.route} activeStyle={styles.activeLink} />}
+            containerElement={<Link to={this.props.route} />}
             nestedItems={(this.props.activeId === this.props.id) ? this.props.childContent.map(child =>
               <ListItem key={child.label}
                 primaryText={child.label} style={styles.subMenuItemStyle}
@@ -72,7 +66,7 @@ class NavPanelContent extends Component {
               ) : []
           } />
         </List>
-        
+
       </Paper>
     </div>)
   }

@@ -48,7 +48,7 @@ static propTypes = {
 	visibility: PropTypes.string,
 	opportunities: PropTypes.string,
 	data: PropTypes.string,
-	userType:PropTypes.string
+	userType: PropTypes.string
 }
 
 static defaultProps = {
@@ -71,18 +71,17 @@ userType:''
 render() {
 	let flag, visibilityIcon, visibilitStatus
 	const {name, creator, createdDate, participants, visibility, opportunities, data,userType} = this.props
-const styles = getStyles(this.props, theme)
-if(userType == 'Administrator') {
+	const styles = getStyles(this.props, theme)
+	if(userType == 'Administrator') {
 
-visibilitStatus = visibility == 'pub' ? 'Public' : 'Private'
-flag = visibility == 'pub' ? 'none' : 'block'
- visibilityIcon = visibility == 'pub' ? <Visibility />: <VisibilityOff />
-} else{
+	visibilitStatus = visibility == 'pub' ? 'Public' : 'Private'
+	flag = visibility == 'pub' ? 'none' : 'block'
+	visibilityIcon = visibility == 'pub' ? <Visibility />: <VisibilityOff />
+	} else{
 	visibilitStatus = null
 	flag  = 'none'
 	 visibilityIcon = null
-}
-
+	}
 return (
 <Paper style={{margin: '5%',position: 'relative'}} zDepth={3} rounded={false}>
 <div style={imageStyles.root}>
